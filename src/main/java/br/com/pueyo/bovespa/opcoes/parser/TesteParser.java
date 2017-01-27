@@ -3,6 +3,7 @@ package br.com.pueyo.bovespa.opcoes.parser;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.List;
 
@@ -16,7 +17,11 @@ public class TesteParser {
 
 	
 	public static void main(String[] args) throws IOException {
-		 InputStream is = new FileInputStream("/home/07669751770/SERPRO_DSV/workspaces/abertura_sp/bpa-opcoes-bovespa/src/main/resources/BDIN");
+		
+		
+		URL url = TesteParser.class.getResource("/BDIN");
+		
+		InputStream is = new FileInputStream(url.getFile());
          
 		 
  
