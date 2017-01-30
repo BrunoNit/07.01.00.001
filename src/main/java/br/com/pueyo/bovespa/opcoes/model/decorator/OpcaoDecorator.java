@@ -16,6 +16,10 @@ public class OpcaoDecorator extends Registro{
 	}
 
 	
+	public String getCodigoNegociado(){
+		return this.local.getCodneg();
+	}
+	
 	public String getTipoMercado() {
 		return TipoMercado.buscarPorCodigo(local.getTpmerc()).getNome();
 	}

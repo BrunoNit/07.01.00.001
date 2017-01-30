@@ -1,8 +1,6 @@
 package br.com.pueyo.bovespa.opcoes.builder.impl;
 
-import br.com.pueyo.bovespa.opcoes.builder.Conversor;
 import br.com.pueyo.bovespa.opcoes.builder.Registro;
-import br.com.pueyo.bovespa.opcoes.enums.TipoMercado;
 
 public class RegistroParser{
 
