@@ -50,12 +50,24 @@ public class ArquivoCotacaoUtils {
 		}
 		return null;
 	}
-	
+	/**
+	 * Busca o arquivo do ultimo pregao
+	 * 
+	 * @return File
+	 */
 	public static File buscarArquivoDiario(){
 		StringBuilder sb = new StringBuilder("http://bvmf.bmfbovespa.com.br/fechamento-pregao/bdi/bdi");
 		DateFormat df = new SimpleDateFormat("MMdd");
 		Calendar dataUltimoPregao = buscarUltimoPregao();
 		URL url = TesteParser.class.getResource("/");
+		return gravaArquivoDeURL(sb.append(df.format(dataUltimoPregao.getTime())).append(".zip").toString(), url.getPath());
+	}
+	
+	public static File buscarArquivoOpcoes(){
+		StringBuilder sb = new StringBuilder("http://bvmf.bmfbovespa.com.br/fechamento-pregao/bdi/bdi");
+		DateFormat df = new SimpleDateFormat("MMdd");
+		Calendar dataUltimoPregao = buscarUltimoPregao();
+		URL url = ArquivoCotacaoUtils.class.getResource("/ROPC.dat");
 		return gravaArquivoDeURL(sb.append(df.format(dataUltimoPregao.getTime())).append(".zip").toString(), url.getPath());
 	}
 
