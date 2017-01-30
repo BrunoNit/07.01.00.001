@@ -12,6 +12,7 @@ import org.apache.commons.io.IOUtils;
 import br.com.pueyo.bovespa.opcoes.builder.Registro;
 import br.com.pueyo.bovespa.opcoes.builder.impl.BuilderFactory;
 import br.com.pueyo.bovespa.opcoes.builder.impl.RegistroParser;
+import br.com.pueyo.bovespa.opcoes.download.ArquivoCotacaoUtils;
 
 public class TesteParser {
 
@@ -21,7 +22,7 @@ public class TesteParser {
 		
 		URL url = TesteParser.class.getResource("/BDIN");
 		
-		InputStream is = new FileInputStream(url.getFile());
+		InputStream is = new FileInputStream(ArquivoCotacaoUtils.buscarArquivoDiario());
          
 		 
  
