@@ -54,7 +54,7 @@ public class TesteParser {
 		}
 		
 		for(DadosOpcoesDecorator dod: dadosOpcao){
-			CodigoPapelPredicate predicate = new CodigoPapelPredicate(dod.getChaveDeBusca());
+			CodigoPapelPredicate predicate = new CodigoPapelPredicate(dod.getChaveDeBuscaAcao(), dod.getChaveDeBuscaOpcao());
 			Collection retorno = CollectionUtils.select(listaRegistroCotacoes, predicate);
 			if(!retorno.isEmpty()){
 				System.out.println("=============================================================");

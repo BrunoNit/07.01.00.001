@@ -2,10 +2,9 @@ package br.com.pueyo.bovespa.opcoes.model.decorator;
 
 import org.apache.commons.lang3.StringUtils;
 
-import br.com.pueyo.bovespa.opcoes.builder.RegistroBusca;
 import br.com.pueyo.bovespa.opcoes.builder.RegistroPosicaoOpcao;
 
-public class DadosOpcoesDecorator extends RegistroPosicaoOpcao implements RegistroBusca{
+public class DadosOpcoesDecorator extends RegistroPosicaoOpcao{
 
 	private RegistroPosicaoOpcao local;
 	
@@ -62,13 +61,17 @@ public class DadosOpcoesDecorator extends RegistroPosicaoOpcao implements Regist
 	}
 
 
-	public String getChaveDeBusca() {
+	public String getChaveDeBuscaAcao() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(this.local.getNomeSociedadeEmissora()).append(this.local.getEspecificacaoPapel());
 		return StringUtils.removeAll(sb.toString(), " ");
 	}
 
-
+	public String getChaveDeBuscaOpcao() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(this.local.getCodigoPapelNegociado());
+		return StringUtils.removeAll(sb.toString(), " ");
+	}
 
 	
 	

@@ -70,7 +70,7 @@ public class OpcaoDecorator extends Registro implements RegistroBusca{
 
 	public String getChaveDeBusca() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(this.local.getNomres()).append(this.local.getEspeci());
+		sb.append(this.local.getCodneg());
 		return StringUtils.removeAll(sb.toString(), " ");
 	}
 
