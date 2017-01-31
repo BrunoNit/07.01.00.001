@@ -73,6 +73,12 @@ public class DadosOpcoesDecorator extends RegistroPosicaoOpcao{
 		return StringUtils.removeAll(sb.toString(), " ");
 	}
 
+
+	@Override
+	public String getTipoMercado() {
+		return this.local.getTipoMercado();
+	}
+
 	
 	
 	
