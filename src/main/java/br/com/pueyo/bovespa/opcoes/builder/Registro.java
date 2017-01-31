@@ -247,5 +247,30 @@ public class Registro{
 	public void setReserva(String reserva) {
 		this.reserva = reserva;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((codneg == null) ? 0 : codneg.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Registro other = (Registro) obj;
+		if (codneg == null) {
+			if (other.codneg != null)
+				return false;
+		} else if (!codneg.equals(other.codneg))
+			return false;
+		return true;
+	}
+	
+	
 
 }

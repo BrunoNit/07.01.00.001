@@ -14,6 +14,8 @@ public abstract class BuilderFactory<T extends Registro> {
 		
 		if(TipoMercado.OPCOES_COMPRA.equals(TipoMercado.buscarPorCodigo(registro.getTpmerc()))){
 			return (BuilderFactory) new OpcaoBuilder<OpcaoDecorator>(registro);
+		}else if(TipoMercado.VISTA.equals(TipoMercado.buscarPorCodigo(registro.getTpmerc()))){
+			return (BuilderFactory) new AcaoBuilder<AcaoDecorator>(registro);
 		}
 		return null;
 	}
