@@ -1,6 +1,6 @@
 package br.com.pueyo.bovespa.opcoes.builder;
 
-public class Registro{
+public class Registro {
 	
 	private String tipreg;
 	private String codbdi;
@@ -271,6 +271,11 @@ public class Registro{
 		return true;
 	}
 	
-	
-
+	protected String convertePreco(String preco) {
+		StringBuilder i = new StringBuilder();
+		StringBuilder f = new StringBuilder();
+		f.append(preco.substring(9, 11));
+		i.append(Integer.valueOf(preco.substring(0, 9)));
+		return i.append(",").append(f).toString();
+	}
 }

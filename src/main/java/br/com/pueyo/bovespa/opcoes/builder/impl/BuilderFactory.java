@@ -2,7 +2,6 @@ package br.com.pueyo.bovespa.opcoes.builder.impl;
 
 import br.com.pueyo.bovespa.opcoes.builder.Registro;
 import br.com.pueyo.bovespa.opcoes.enums.TipoMercado;
-import br.com.pueyo.bovespa.opcoes.model.decorator.OpcaoDecorator;
 
 public abstract class BuilderFactory<T extends Registro> {
 	

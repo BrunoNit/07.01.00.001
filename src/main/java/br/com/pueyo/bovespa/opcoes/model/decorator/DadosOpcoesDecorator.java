@@ -2,9 +2,10 @@ package br.com.pueyo.bovespa.opcoes.model.decorator;
 
 import org.apache.commons.lang3.StringUtils;
 
+import br.com.pueyo.bovespa.opcoes.builder.RegistroBusca;
 import br.com.pueyo.bovespa.opcoes.builder.RegistroPosicaoOpcao;
 
-public class DadosOpcoesDecorator extends RegistroPosicaoOpcao{
+public class DadosOpcoesDecorator extends RegistroPosicaoOpcao implements RegistroBusca{
 
 	private RegistroPosicaoOpcao local;
 	
@@ -17,10 +18,23 @@ public class DadosOpcoesDecorator extends RegistroPosicaoOpcao{
 		return StringUtils.trim(this.local.getCodigoPapelNegociado());
 	}
 	
+	public String getValorExercicio(){
+		return convertePreco(this.local.getPrecoExercicio());
+	}
+	public String convertePreco(String preco) {
+		StringBuilder i = new StringBuilder();
+		StringBuilder f = new StringBuilder();
+		f.append(preco.substring(11, 13));
+		i.append(Integer.valueOf(preco.substring(0, 11)));
+		return i.append(",").append(f).toString();
+	}
 	
 	@Override
 	public String toString() {
-		return new StringBuilder(this.local.getCodigoPapelNegociado()).append("|").append(this.local.getNomeSociedadeEmissora()).append("|").append(this.local.getNumeroSerie()).append("|").append(this.local.getEspecificacaoPapel()).toString();
+		StringBuilder sb = new StringBuilder(this.local.getCodigoPapelNegociado()).append("|");
+		sb.append(this.local.getNomeSociedadeEmissora()).append(this.local.getEspecificacaoPapel()).append("|");
+		sb.append(this.local.getNumeroSerie()).append("|");
+		return sb.toString();
 	}
 
 
@@ -45,6 +59,13 @@ public class DadosOpcoesDecorator extends RegistroPosicaoOpcao{
 			return true;
 		}
 		return false;
+	}
+
+
+	public String getChaveDeBusca() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(this.local.getNomeSociedadeEmissora()).append(this.local.getEspecificacaoPapel());
+		return StringUtils.removeAll(sb.toString(), " ");
 	}
 
 

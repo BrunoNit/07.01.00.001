@@ -10,7 +10,6 @@ public class AcaoBuilder<T extends Registro>  extends BuilderFactory<T> {
 		this.local = reg;
 	}
 	
-	@Override
 	public T converte() {
 		return (T) new AcaoDecorator(this.local);
 	}

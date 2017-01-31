@@ -1,13 +1,16 @@
-package br.com.pueyo.bovespa.opcoes.model.decorator;
+package br.com.pueyo.bovespa.opcoes.builder.impl;
 
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import org.apache.commons.lang3.StringUtils;
+
 import br.com.pueyo.bovespa.opcoes.builder.Registro;
+import br.com.pueyo.bovespa.opcoes.builder.RegistroBusca;
 import br.com.pueyo.bovespa.opcoes.enums.TipoMercado;
 
-public class OpcaoDecorator extends Registro{
+public class OpcaoDecorator extends Registro implements RegistroBusca{
 	
 	private Registro local;
 	
@@ -52,13 +55,7 @@ public class OpcaoDecorator extends Registro{
 	public String getPrecoExercicio(){
 		return convertePreco(this.local.getPreexe());
 	}
-	private String convertePreco(String preco) {
-		StringBuilder i = new StringBuilder();
-		StringBuilder f = new StringBuilder();
-		f.append(preco.substring(9, 11));
-		i.append(Integer.valueOf(preco.substring(0, 9)));
-		return i.append(",").append(f).toString();
-	}
+	
 	
 	
 	
@@ -68,6 +65,13 @@ public class OpcaoDecorator extends Registro{
 		sb.append(local.getCodneg()).append("|").append(this.getTipoMercado()).append("|").append(this.getPrecoUltimoNegocio()).append("|").append(this.getDataVencimento())
 		.append("|").append(this.getPrecoExercicio());
 		return sb.toString();
+	}
+
+
+	public String getChaveDeBusca() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(this.local.getNomres()).append(this.local.getEspeci());
+		return StringUtils.removeAll(sb.toString(), " ");
 	}
 
 }

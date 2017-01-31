@@ -1,7 +1,6 @@
 package br.com.pueyo.bovespa.opcoes.builder.impl;
 
 import br.com.pueyo.bovespa.opcoes.builder.Registro;
-import br.com.pueyo.bovespa.opcoes.model.decorator.OpcaoDecorator;
 
 public class OpcaoBuilder<T extends Registro> extends BuilderFactory<T>{
 	
