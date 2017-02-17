@@ -85,6 +85,7 @@ public class AcaoDecorator extends Registro implements RegistroBusca{
 			return false;
 		return true;
 	}
+
 	
 	
 	
